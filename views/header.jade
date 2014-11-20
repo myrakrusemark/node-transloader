@@ -1,0 +1,11 @@
+div.navbar.navbar-inverse(role='navigation')
+	div.container
+		div.navbar-header
+			//a.navbar-brand(href="#")
+			//	| Dropbox Transloader
+		ul.nav.navbar-nav.pull-right
+			li.loggedIn.hide
+				a#logOut Log Out
+			li.loggedOut
+				a(href="#{authLink}" id="logIn") Log In to Dropbox
+

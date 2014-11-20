@@ -1,0 +1,204 @@
+body {
+	color:white;
+background:#369D5A;
+  padding: 0px 0px 0px 0px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+cursor: pointer;
+color: white;
+background: rgba(255, 255, 255, 0.2);
+padding: 2px 16px;
+}
+
+a:hover {
+color:white;
+text-decoration: none;
+background: rgba(255, 255, 255, 0.4);
+}
+
+a:active {
+color:white;
+text-decoration: none;
+background: rgba(255, 255, 255, 0.2);
+}
+
+p {
+margin: 0 0 10px;
+line-height: 1.5em;
+}
+
+.btn{
+cursor:pointer;
+}
+
+
+
+.navbar.navbar-inverse{
+	background-color:#369D5A;
+	border:none;
+}
+
+.navbar-inverse .navbar-brand{
+	color:white;
+}
+
+.navbar-inverse .navbar-toggle {
+	border-color: white;
+}
+
+
+.navbar-nav{
+
+}
+.navbar-inverse .navbar-nav>li>a {
+color: white;
+}
+
+#title {
+color:white;
+margin-bottom:20px;
+width: 100%;
+font-weight:600;
+text-align: center; 
+}
+
+.moreInfo{
+max-height: 200px;
+overflow-y: scroll;
+}
+
+#accordion.panel-group.clear .panel{
+background-color: transparent;
+border:none;
+}
+
+#controls .progress{
+background:none;
+border: 1px solid white;
+margin-top: -1px;
+margin-bottom:0;
+border-radius:0px 0px 4px 4px;
+height:5px;
+}
+
+#controls .progress-bar{
+
+}
+
+#controls #urlInput{
+box-shadow: none;
+border: 1px solid white;
+border-bottom-left-radius:0px;
+}
+
+#controls #submitURL{
+border-bottom-right-radius:0px;
+	background: rgba(255, 255, 255, 0.2);
+color: white;
+border: 1px solid white;
+cursor:pointer;
+}
+
+#controls #submitURL:hover, .btn:hover{
+background: rgba(255, 255, 255, 0.4);
+}
+
+#controls #submitURL:active, .btn:active{
+background: rgba(255, 255, 255, 0.2);
+}
+
+#fileList{
+padding: 10px 10px 1px 10px;
+overflow: hidden;
+max-height:500px;
+background: rgba(255, 255, 255, 0.2);
+width:100%;
+max-width: 480px;
+margin: 0 auto;
+margin-bottom: 20px;
+border-bottom-left-radius:4px;
+border-bottom-right-radius:4px;
+
+-webkit-transition: max-height 1s, padding 1s;
+transition: max-height 1s, padding 1s;
+}
+
+#fileList.hideList{
+max-height: 0px;
+padding: 0px 10px 0px 10px;
+}
+
+#fileList .options {
+//display:none;
+position: absolute;
+top: 50%;
+right: 3px;
+margin-top: -18px;
+
+}
+
+#fileList .list-group-item{
+background: none;
+border: 1px solid white;
+color: white;
+padding: 13px 15px;
+word-break: break-all;
+}
+
+.list-group-item:first-child {
+border-top-left-radius: 0px;
+border-top-right-radius: 0px;
+}
+
+.list-group-item:last-child {
+margin-bottom: 0;
+border-bottom-right-radius: 0px;
+border-bottom-left-radius: 0px;
+}
+
+#fileList .list-group-item.active .options{
+	display:block;
+}
+
+.footer, .footer a{
+	color:white;
+	text-align: center;
+}
+
+
+.btn{
+	background: rgba(255, 255, 255, 0.2);
+}
+.btn-success {
+background: rgba(92, 184, 92, 0.5);
+border: 1px solid white;
+color: white;
+}
+.btn-danger {
+background: rgba(217, 83, 79, 0.5);
+border: 1px solid white;
+color: white;
+}
+
+
+.alertify {
+color:black;
+top: 140px;
+}
+
+.alertify-log{
+background: #369D5A;
+padding:2px 10px;
+border: none;
+color: white;
+text-shadow: none;
+}
+
+.alertify-log-error{
+	background: none;
+border: none;
+color: #f0ad4e;
+text-shadow: none;
+}

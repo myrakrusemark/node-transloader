@@ -1,0 +1,72 @@
+extends layout
+
+block content
+	div.container 
+		h1#title #{title}
+		p
+			| "Transload" any file from anywhere on the Internet to your secure personal Dropbox folder. 
+			a#showMoreInfo(data-toggle="collapse" data-parent="#accordion" href="#collapseOne")
+				| More&nbsp;Info
+		div#accordion.panel-group.clear
+			div.panel.panel-default 
+				div#collapseOne.panel-collapse.collapse
+					div.panel-body
+						p
+							| Transload
+							br
+							i
+								| /trans l&#333;d/ 
+							i
+								| verb
+							br
+							| To digitally transfer from one distant location to another.
+						p
+							| The Transloader allows anyone with a Dropbox account to remotely transfer large files from one remote location to another. Armed with only the URL location of the desired file, the Transloader will create a copy in a secure folder in your Dropbox.
+						p
+							| The Transloader is meant to be a proof of concept and the code is completely 
+							a(href="https://github.com/alnino2005/node-dropTest") open&nbsp;source
+							| .
+
+
+		div.loggedOut
+			p
+				| Please login to your dropbox account by clicking "Log In to Dropbox."
+			p
+				a(href="#{authLink}" id="log-in") Log In to Dropbox
+		div.loggedIn.hide
+			p
+				| Want Transloader on the go? Just drag this bookmarklet, 
+				include bookmarklet.html
+				|  into your bookmarks and get rid of the middle-man!
+			p
+				| Enter the URL to any file below. Base64 encoded strings are also accepted.
+
+			div#controls
+				div.input-group
+					textarea#urlInput.form-control(type="text" rows="1" name="code")
+						| https://www.google.com/images/srpr/logo11w.png
+					span#submitURL(class="input-group-addon")
+						| Transload
+				.progress
+					.progress-bar.progress-bar-warning(role='progressbar', aria-valuenow='0', aria-valuemin='0', aria-valuemax='100', style='width: 0%;')
+		div.loggedIn.hide
+			div#fileList.hideList
+				p
+					| #{name}'s Files
+					a.btn.btn-xs.btn-success.pull-right(href="https://www.dropbox.com/home/Apps/Transloader" target="_blank")
+						| &nbsp;&nbsp;&nbsp;
+						span.glyphicon.glyphicon-log-in(aria-hidden="true")
+						| &nbsp;&nbsp;&nbsp;
+
+				ul.list-group
+
+
+						
+	div#moreInfo.hide
+		div.alertify-message.moreInfo
+			p
+				| The devices and services we use are becoming more integrated into our daily lives than ever before. As aspects of our lives come together at accelerating rates, rifts form between different solutions. For example, anyone can wear their entire medical history around their neck, but there currently exists no way to read it.
+			p
+				| Now, everyone can upload a file to their Dropbox account from anywhere on the Internet using only a URL. The Dropbox Transloader is the perfect solution for transferring large files to a personal space. Using secure OAuth 2.0 authentication and an isolated Dropbox folder to ensure the rest of your account is safe, Dropbox Transloader is secure and ready to assist. After "transloading," users can return to their Dropbox folder where their file is waiting for them.
+			p
+				| Thanks again for stopping by. Give the Transloader a try and consider it the next time you need it.
