@@ -1,7 +1,7 @@
 $(document).ready(function() {
 
 	var code = -1;
-    var socket = io.connect('https://transloader.org:8000/', {secure: true});
+    var socket = io.connect(window.location.href, {secure: true});
     //var socket = io.connect('http://54.69.210.152:8000/', {secure: false});
 
 	if(typeof getURLVars()['code'] === 'string'){
@@ -56,6 +56,9 @@ $(document).ready(function() {
 
 
 	logInConfirm(code, function(loggedIn){
+		socket.emit("subscribe", { room: code });
+		console.log(socket);
+
 		if(loggedIn == 0){
 			console.log("Logged Out")
 		}else if(loggedIn == -1){
@@ -63,6 +66,10 @@ $(document).ready(function() {
 			ga('send', 'event', 'auth', 'log-in-failure', code);
 		}else{
 			console.log("Logged In")
+
+			alertify.log('Welcome! Loading...');
+			ga('send', 'event', 'auth', 'log-in', code);
+			refreshUserInfo(socket, code);
 
 			$('.loggedIn').removeClass("hide");
     		$('.loggedOut').addClass('hide');
@@ -104,19 +111,23 @@ $(document).ready(function() {
 						break;
 					case 6:
 						alertify.error('Transload not successful.');
+						setProgressBarPercent('.progress', 0);
 						ga('send', 'event', 'transload', 'transload-failure', data.fileName);
 						break;
 					case 7:
 						alertify.error('Invalid URL.');
 						ga('send', 'event', 'transload', 'transload-failure-bad-url', data.fileName);
 						break;
+					case 8:
+						alertify.error('Filesize unknown.');
+						ga('send', 'event', 'transload', 'transload-failure-bad-url', data.fileName);
+						break;
+					case 9: //Check for file on Dropbox didn't work. Refresh the page.
+						location.reload();
+						break;
 				}
 
 			});
-
-			alertify.log('Welcome! Loading...');
-			ga('send', 'event', 'auth', 'log-in', code);
-			refreshUserInfo(socket, code);
 
 			$("#logOut").click(function(){
 

@@ -26,12 +26,28 @@ var app = express();
 
 var https_options = {
   key: fs.readFileSync('../keys/dropTest-key.pem'),
-  cert: fs.readFileSync('../keys/dropTest-cert.pem')
+  cert: fs.readFileSync('../keys/dropTest-cert.pem') 
 };
 
 //var server = http.createServer(app).listen(8000);
 var server = https.createServer(https_options, app).listen(PORT);
-var io = global.io = require('socket.io').listen(server);
+var io = require('socket.io').listen(server)
+.on('connection', function(socket){
+    console.log("Connection")
+
+    socket.on('subscribe', function(data) { 
+        console.log("Joining room: "+data.room);
+        socket.join(data.room); 
+       // io.to(data.room).emit('status', { status: '2' });
+    })
+
+    require('./routes/functions/socket')(io, socket);
+
+    socket.on('disconnect', function(data){
+        console.log("Disconnected");
+    });
+
+})
 
 
 
